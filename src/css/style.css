@@ -126,3 +126,13 @@
     padding: '10px';
     border: '1px solid #ccc',
 }
+
+.lableText {
+    width: 180px;
+    display: inline-block;
+}
+  
+.bottom-space {
+    margin-bottom: 10px;
+}
+  

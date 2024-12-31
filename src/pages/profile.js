@@ -41,8 +41,6 @@ const ProfileDetails = () => {
 
     let [showsListFormDetails,showsListFormDetials] = useState([]);
 
-
-
     const onSubmit = () => {
         console.log(formDetails);
 
@@ -110,10 +108,10 @@ const ProfileDetails = () => {
           <input type="checkbox"   name="hoobies"  value="cricket"onChange={handleInputField}/>cricket
           <input type="checkbox"   name="hoobies"  value="basketball" onChange={handleInputField}/>basketball
           <input type="checkbox"   name="hoobies"  value="football"onChange={handleInputField}/>football
-          <input type="checkbox"   name="hoobies"  value="chess"onChange={handleInputField}/>chess
+          {/* <input type="checkbox"   name="hoobies"  value="chess"onChange={handleInputField}/>chess
           <input type="checkbox"   name="hoobies"  value="hocky" onChange={handleInputField}/>hocky
           <input type="checkbox"   name="hoobies"  value="cyclling"onChange={handleInputField}/>cyclling
-          <input type="checkbox"   name="hoobies"  value="swiming"onChange={handleInputField}/>swiming
+          <input type="checkbox"   name="hoobies"  value="swiming"onChange={handleInputField}/>swiming */}
           {errorForm.hoobies && <span className="error-msg">hobbies Should not be empty </span>}
         </div>
         <div className="bottom-space">
