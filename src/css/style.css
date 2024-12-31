@@ -1,0 +1,128 @@
+.heading{
+    color: red;
+}
+
+#loginHeading {
+    color: blue;
+}
+
+.home-image {
+    width: 300px;
+}
+
+.Nested-container{
+    width: 100vw;
+    height: 100vh;
+    border: 2px solid red;
+    box-sizing: border-box;
+}
+.header-container{
+    width: 100%;
+    border: 2px solid red;
+    height: 10%;
+    box-sizing: border-box;
+}
+.body-container {
+    height: 90%;
+    width: 100%;
+    border: 2px solid red;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.sidebar{
+    height: 100%;
+    width: 20%;
+    border: 2px solid red;
+    box-sizing: border-box;
+}
+
+.section{
+    width: 80%;
+    height: 100%;
+    border: 2px solid red;
+    box-sizing: border-box;
+}
+
+.content {
+    height: 80%;
+    border: 2px solid red;
+    box-sizing: border-box;
+}
+
+.footer {
+    height: 20%;
+    border: 2px solid red;
+    box-sizing: border-box;
+}
+
+
+.linkbutton {
+    border: 1px solid blue;
+    text-decoration: none;
+    padding: 1px 23px;
+    margin: 15px;
+    background-color: aliceblue;
+    display: inline-block;
+
+}
+
+.selection{
+    background-color: blue;
+    color:white;
+    border: 1px solid blueviolet;
+}
+
+
+.form{
+    display: flex;
+    height: 100% !important;
+}
+
+.from-container {
+    width: 60%;
+    border: 2px solid red;
+    box-sizing: border-box;
+}
+
+.output-container {
+    width: 40%;
+    border: 2px solid red;
+    box-sizing: border-box;
+}
+
+
+.salary-from-container {
+    width: 40%;
+    border: 2px solid red;
+    box-sizing: border-box;
+}
+
+.salary-output-container {
+    width: 60%;
+    border: 2px solid red;
+    box-sizing: border-box;
+}
+
+.actors-from-container {
+    width: 30%;
+    border: 2px solid red;
+    box-sizing: border-box;
+}
+
+.actors-output-container {
+    width: 70%;
+    border: 2px solid red;
+    box-sizing: border-box;
+}
+
+.error-msg{
+    color:red;
+}
+
+
+.profile-detail {
+    margin-bottom: '20px';
+    padding: '10px';
+    border: '1px solid #ccc',
+}
