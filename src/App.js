@@ -14,6 +14,7 @@ import VechicalDetails from "./pages/vechical-details";
 import ActorsDetails from "./pages/actors-details";
 import ProfileDetails from "./pages/profile";
 import CondtionalRendering from "./pages/conditional-rendering";
+import HappyNewYearForm from "./pages/happy-new-year";
 
 import {BrowserRouter,Routes,Route} from "react-router-dom";
 
@@ -27,6 +28,7 @@ const ComponentName = ()  => {
         <Route path="" element={<HomePage></HomePage>}></Route>
         <Route path="login" element={<LoginPage></LoginPage>}></Route>
         <Route path="about" element={<AboutPage></AboutPage>}></Route>
+        <Route path="newyear" element={<HappyNewYearForm></HappyNewYearForm>}></Route>
          {/* Nested Routing */}
         <Route path="nested" element={<NestedRoutingPage></NestedRoutingPage>}>
         <Route path="content-1" element={<NestedRouting1></NestedRouting1>}></Route>

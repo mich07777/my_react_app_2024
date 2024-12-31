@@ -120,6 +120,12 @@
     color:red;
 }
 
+.new-year-msg {
+    color: green;
+    background-color: red;
+    text-align:center ;
+}
+
 
 .profile-detail {
     margin-bottom: '20px';
@@ -136,3 +142,6 @@
     margin-bottom: 10px;
 }
   
+.new-year-from-container {
+    text-align:center ;
+}
