@@ -37,7 +37,7 @@ const ApiPage = () => {
                 <td>{value.first_name}</td>
                 <td>{value.last_name}</td>
                 <td>{value.email}</td>
-                <td><img src={value.avatar} width="60"/></td>
+                <td><img src={value.avatar} width="60" alt=""/></td>
             </tr>   
         )
     });
@@ -47,13 +47,13 @@ const ApiPage = () => {
         updateForm({...userForm,[event.target.name] : event.target.value });
     }
 
-    const onSubmit = () =>{
+    const onSubmit = () => {
         console.log(userForm);
 
         const url = "https://reqres.in/api/users";
 
         axios.post(url,userForm)
-           .then((response) =>{
+           .then((response) => {
             console.log(response.data)
 
            })
