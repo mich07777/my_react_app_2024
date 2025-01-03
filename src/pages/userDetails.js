@@ -37,7 +37,7 @@ const userGetFormDetails = () => {
     axios.get(url)
     .then((response)=>{
         console.log(response.data.data);
-        UpdateUserFormGetDetails(response.data)
+        UpdateUserFormGetDetails(response.data.data)
     })
     .catch((error)=>{
         console.log(error);
