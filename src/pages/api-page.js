@@ -50,7 +50,7 @@ const ApiPage = () => {
     const onSubmit = () => {
         console.log(userForm);
 
-        const url = "https://reqres.in/api/users";
+        const url = "http://localhost:5000/api/create/user"
 
         axios.post(url,userForm)
            .then((response) => {
@@ -64,10 +64,24 @@ const ApiPage = () => {
 
     }
 
+
+    const getWelcomeAPIMethod = () => {
+        const url = "http://localhost:5000/api/welcome";
+
+        axios.get(url)
+         .then((response) => {
+            console.log(response);
+         })
+         .catch((error) => {
+            console.log(error);
+         })
+    }
+
     return(
         <div>
             <h2>GET Mothod</h2>
             <button onClick={() => getAPImethod()}>Get</button>
+            <button onClick={() => getWelcomeAPIMethod()}>Get Welcome API</button>
             <table id="customers">
                 <tr>
                     <thead>
