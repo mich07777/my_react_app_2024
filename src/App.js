@@ -17,6 +17,7 @@ import CondtionalRendering from "./pages/conditional-rendering";
 import HappyNewYearForm from "./pages/happy-new-year";
 import ApiPage from "./pages/api-page";
 import GetPostPage from "./pages/get-post";
+import UserDetails from "./pages/userDetails";
 
 import {BrowserRouter,Routes,Route} from "react-router-dom";
 
@@ -33,6 +34,7 @@ const ComponentName = ()  => {
         <Route path="newyear" element={<HappyNewYearForm></HappyNewYearForm>}></Route>
         <Route path="apiPage" element={<ApiPage></ApiPage>}></Route>
         <Route path="getPage" element={<GetPostPage></GetPostPage>}></Route>
+        <Route path="userdetails" element={<UserDetails></UserDetails>}> </Route>
          {/* Nested Routing */}
         <Route path="nested" element={<NestedRoutingPage></NestedRoutingPage>}>
         <Route path="content-1" element={<NestedRouting1></NestedRouting1>}></Route>
