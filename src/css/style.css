@@ -188,3 +188,21 @@
     text-align: center;
     margin:0px;
   }
+
+  .cars-list{
+    width: 150px;
+    height: 150px;
+    border:2px solid red;
+  }
+
+  .cars-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .cars-list h3 {
+    text-align: center;
+    margin:0px;
+  }
