@@ -179,7 +179,7 @@
   }
 
   .student-list {
-    width: 150px;
+    width: 170px;
     height: 100px;
     border:2px solid red;
   }
@@ -205,4 +205,9 @@
   .cars-list h3 {
     text-align: center;
     margin:0px;
+  }
+
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
   }

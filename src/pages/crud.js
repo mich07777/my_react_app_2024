@@ -12,6 +12,7 @@ const CrudoperationPage =  () => {
             salary:""   
     });
 
+    const [selectedStudent,updateSelectedStudent] = useState(undefined);
 
     const loadStudentDetails = () => {
         // alert("working");
@@ -27,16 +28,51 @@ const CrudoperationPage =  () => {
         })
     }
 
+    const handelEditInput = (id, event) => {
+        // console.log(id,event);
+        const index = id - 1;
+        studentList[index][event.target.name] = event.target.value;
+        updateStudentList([...studentList]);
+    }
+
     let recordList = studentList.map((value,index) => {
         return(
             <div  className="student-list" key={index}>
-                <h3>{value.name}</h3>
-                <h3>{value.age}</h3>
-                <h3>{value.salary}</h3>
+                {
+                selectedStudent === value.id ?
+                <div>
+                    <input type="text" name="name" placeholder="Student Name" value={value.name} onChange={handelEditInput.bind(this,value.id)}/>
+                    <input type="text" name="age" placeholder="Student Age" value={value.age} onChange={handelEditInput.bind(this,value.id)}/>
+                    <input type="text" name="salary" placeholder="Student Location"value={value.salary} onChange={handelEditInput.bind(this,value.id)}/>
+                </div>
+            
+                :
+                <div>
+                    <h3>{value.name}</h3>
+                    <h3>{value.age}</h3>
+                    <h3>{value.salary}</h3>
+                </div>
+                }
+                
                 <button onClick={() => deleteStudent(value.id)}>Delete</button>
+                {
+                    selectedStudent === value.id ? 
+                    <button onClick={() => saveStudent(value)}>Save</button> 
+                    :
+                   <button onClick={() => editStudent(value.id)}>Edit</button>
+
+                }
             </div>
         )
     });
+
+    const editStudent = (id) => {
+        updateSelectedStudent(id);
+    }
+
+    const saveStudent = () => {
+        updateSelectedStudent(undefined);
+    }
 
     const deleteStudent = (id) => {
         // alert(id);
