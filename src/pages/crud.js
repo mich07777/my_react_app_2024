@@ -70,8 +70,19 @@ const CrudoperationPage =  () => {
         updateSelectedStudent(id);
     }
 
-    const saveStudent = () => {
-        updateSelectedStudent(undefined);
+    const saveStudent = (value) => {
+        // console.log(value);
+        const url ="http://localhost:5000/api/updtae/employeeDetails/" + value.id
+        axios.put(url,value)
+        .then((response) => {
+            alert(response.data);
+            updateSelectedStudent(undefined);
+
+        })
+        .catch((error) => {
+            // console.log(error);
+            alert(error.response.data);
+        })
     }
 
     const deleteStudent = (id) => {
@@ -102,7 +113,13 @@ const CrudoperationPage =  () => {
         .then((response)=> {
             console.log(response.data);
             loadStudentDetails();
-            alert(response.data);
+            //clear the form
+            updateStudentDetails({
+                name:"",
+                age:"",
+                salary:""
+            })
+            // alert(response.data);
         })
         .catch((error) => {
             console.log(error);
@@ -112,14 +129,18 @@ const CrudoperationPage =  () => {
     return(
         <div>
             <h2>crate studen info</h2>
-            <input type="text" name="name" placeholder="enter name" onChange={handleInputfild}/>
-            <input type="number" name="age" placeholder="enter age" onChange={handleInputfild}/>
-            <input type="number"name="salary"  placeholder="enter salary" onChange={handleInputfild}/>
+            <input type="text" name="name" value={studentDetails.name} placeholder="enter name" onChange={handleInputfild}/>
+            <input type="number" name="age"value={studentDetails.age} placeholder="enter age" onChange={handleInputfild}/>
+            <input type="number"name="salary" value={studentDetails.salary} placeholder="enter salary" onChange={handleInputfild}/>
             <button onClick={() => uploadStudentDetails()}>submit</button>
             <h2>Students Details here</h2>
             <button onClick={() => loadStudentDetails()}>load student details</button>
             <div className="student-container">
-            {recordList}
+            {recordList.length == 0 ?
+            <h2>No Student Record Found</h2>
+            :
+            recordList
+            }
             </div>
         </div>
     )
