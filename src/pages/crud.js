@@ -117,7 +117,7 @@ const CrudoperationPage =  () => {
             <input type="number"name="salary"  placeholder="enter salary" onChange={handleInputfild}/>
             <button onClick={() => uploadStudentDetails()}>submit</button>
             <h2>Students Details here</h2>
-            <button onClick={() => loadStudentDetails()}>loaad student details</button>
+            <button onClick={() => loadStudentDetails()}>load student details</button>
             <div className="student-container">
             {recordList}
             </div>

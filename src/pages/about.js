@@ -12,6 +12,8 @@ const AboutPage  = () => {
                 "Salary": ""
     })
 
+    let [selectedEmployee,updateEmployeeTable] = useState(undefined);
+
     const employeDetailsShows = () => {
 
         const url ="http://localhost:5000/api/get/employeeDetails";
@@ -25,21 +27,76 @@ const AboutPage  = () => {
         })
     }
 
-    const EmployeeDetailsList = showEmployeeDetails.map((value,index) => {
-        return(
-                  <tr key={index}>
+    const onHandleInputUpdateField = (id, event) => {
+        const index = showEmployeeDetails.findIndex((emp) => emp.id === id);
+        if (index > -1) {
+            const updatedDetails = [...showEmployeeDetails];
+            updatedDetails[index][event.target.name] = event.target.value;
+            UpdateEmployeeDetails(updatedDetails);
+        }
+    };
+
+    const EmployeeDetailsList = showEmployeeDetails.map((value, index) => {
+    return (
+        <tr key={index}>
+            {selectedEmployee === value.id ? (
+                <>
+                    <td>
+                        <input
+                            type="text" name="employeeName" value={value.employeeName} placeholder="Enter employee name" onChange={onHandleInputUpdateField.bind(this, value.id)}
+                        />
+                    </td>
+                    <td>
+                        <input
+                            type="text" name="designation" value={value.designation} placeholder="Enter designation" onChange={onHandleInputUpdateField.bind(this, value.id)}
+                        />
+                    </td>
+                    <td>
+                        <input
+                            type="time" name="inTime" value={value.inTime} placeholder="Enter in-time" onChange={onHandleInputUpdateField.bind(this, value.id)}
+                        />
+                    </td>
+                    <td>
+                        <input
+                            type="time" name="outTime" value={value.outTime} placeholder="Enter out-time" onChange={onHandleInputUpdateField.bind(this, value.id)}
+                        />
+                    </td>
+                    <td>
+                        <input
+                            type="number" name="Salary" value={value.Salary} placeholder="Enter salary" onChange={onHandleInputUpdateField.bind(this, value.id)}
+                        />
+                    </td>
+                </>
+            ) : (
+                <>
                     <td>{value.employeeName}</td>
                     <td>{value.designation}</td>
                     <td>{value.inTime}</td>
                     <td>{value.outTime}</td>
                     <td>{value.Salary}</td>
-                    {/* wantedly pass the id */}
-                    <td><button onClick={() => employeeDelete(value.id)}>Delete</button></td>
-                    <td><button >Edit</button></td>
-                 </tr>
-        )
-    });
+                </>
+            )}
+            <td>
+                <button onClick={() => employeeDelete(value.id)}>Delete</button>
+            </td>
+            <td>
+                {selectedEmployee === value.id ? (
+                    <button onClick={() => saveEmployee(value)}>Save</button>
+                ) : (
+                    <button onClick={() => editEmployee(value.id)}>Edit</button>
+                )}
+            </td>
+        </tr>
+    );
+});
 
+    const editEmployee = (id) => {
+        updateEmployeeTable(id);
+    }
+ 
+    const saveEmployee = () => {
+        updateEmployeeTable(undefined);
+    }
 
     const onHandleInputField = (event) => {
         console.log(event.target.value,event.target.name);
