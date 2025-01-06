@@ -28,7 +28,9 @@ const AboutPage  = () => {
     }
 
     const onHandleInputUpdateField = (id, event) => {
-        const index = showEmployeeDetails.findIndex((emp) => emp.id === id);
+        const index = showEmployeeDetails.findIndex((emp) => {
+                return emp.id === id;
+        });   
         if (index > -1) {
             const updatedDetails = [...showEmployeeDetails];
             updatedDetails[index][event.target.name] = event.target.value;
