@@ -20,6 +20,7 @@ import GetPostPage from "./pages/get-post";
 import UserDetails from "./pages/userDetails";
 import CrudoperationPage from "./pages/crud";
 import CarCollcetionDetailsPage from "./pages/carcollection-details";
+import SalaryDetailsForEmployee from "./pages/employee_salary_details";
 
 import {BrowserRouter,Routes,Route} from "react-router-dom";
 
@@ -39,6 +40,7 @@ const ComponentName = ()  => {
         <Route path="userdetails" element={<UserDetails></UserDetails>}> </Route>
         <Route path="crudoperation" element={<CrudoperationPage></CrudoperationPage>}> </Route>
         <Route path="carCollcetion" element={<CarCollcetionDetailsPage></CarCollcetionDetailsPage>}></Route>
+        <Route path="Salary_Employee_Details" element={<SalaryDetailsForEmployee></SalaryDetailsForEmployee>}></Route>
          {/* Nested Routing */}
         <Route path="nested" element={<NestedRoutingPage></NestedRoutingPage>}>
         <Route path="content-1" element={<NestedRouting1></NestedRouting1>}></Route>

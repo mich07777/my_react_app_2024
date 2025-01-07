@@ -28,6 +28,27 @@ const CrudoperationPage =  () => {
         })
     }
 
+    const uploadStudentDetails = () => {
+        console.log(studentDetails);
+
+        const url ="http://localhost:5000/api/list/details";
+        axios.post(url,studentDetails)
+        .then((response)=> {
+            console.log(response.data);
+            loadStudentDetails();
+            //clear the form
+            updateStudentDetails({
+                name:"",
+                age:"",
+                salary:""
+            })
+            // alert(response.data);
+        })
+        .catch((error) => {
+            console.log(error);
+        })
+    }
+
     const handelEditInput = (id, event) => {
         // console.log(id,event);
         const index = id - 1;
@@ -105,27 +126,6 @@ const CrudoperationPage =  () => {
 
     }
 
-    const uploadStudentDetails = () => {
-        console.log(studentDetails);
-
-        const url ="http://localhost:5000/api/list/details";
-        axios.post(url,studentDetails)
-        .then((response)=> {
-            console.log(response.data);
-            loadStudentDetails();
-            //clear the form
-            updateStudentDetails({
-                name:"",
-                age:"",
-                salary:""
-            })
-            // alert(response.data);
-        })
-        .catch((error) => {
-            console.log(error);
-        })
-    }
-
     return(
         <div>
             <h2>crate studen info</h2>
@@ -136,7 +136,7 @@ const CrudoperationPage =  () => {
             <h2>Students Details here</h2>
             <button onClick={() => loadStudentDetails()}>load student details</button>
             <div className="student-container">
-            {recordList.length == 0 ?
+            {recordList.length === 0 ?
             <h2>No Student Record Found</h2>
             :
             recordList
